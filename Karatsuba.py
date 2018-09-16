@@ -35,21 +35,5 @@ def Karatsuba(x,y):
              
         return result
     
-    
-def chaishu(x):
-    
-    if x<10:
-        return [x]   
-    
-    else:
-        prior_n = int(len(str(x)))
-        n = prior_n//2
-    
-        a = x//(10**n)
-        b = x%(10**n)
-        
-        result = [chaishu(a),chaishu(b)]
-        
-        return result
 
 Karatsuba(x,y)
