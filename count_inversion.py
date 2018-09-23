@@ -62,12 +62,10 @@ def merge_countInv(array_c, array_d):
         if array_c[i] < array_d[j]:
             array_b.append(array_c[i])
             i += 1
-            print(array_b, array_c, i, array_d, j, splitInv)
         else:
             array_b.append(array_d[j])
             j += 1
             splitInv += len(array_c) - i
-            print(array_b, array_c, i, array_d, j, splitInv)
 
     if i < j:
         array_b += array_c[i:]
