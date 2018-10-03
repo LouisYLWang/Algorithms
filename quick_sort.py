@@ -76,17 +76,15 @@ def patrition (array, l, r):
     times += (r-l)
     return i-1
 
-
+# Always use the ﬁrst element as the pivot。
 def ChoosePivotQ1(array, l, r):
-    #pivotIndex = randint(l, r)
     return l
 
-
+# Always use the last element as the pivot. 
 def ChoosePivotQ2(array, l, r):
-    #pivotIndex = randint(l, r)
     return r
 
-
+# Use the median-of-three as the pivot element, considers the ﬁrst, middle, and ﬁnal elements of the given array. It then identiﬁes which of these three elements is the median and returns this as the pivot
 def ChoosePivotQ3(array, l, r):
     subarray = array[l:r]
     m = ((len(subarray)+1)//2)-1
@@ -94,13 +92,18 @@ def ChoosePivotQ3(array, l, r):
     chosen_Index = array.index(compare_list[1])
     return chosen_Index
 
+# Use a random element as the pivot. 
+def ChoosePivot(array, l, r):
+    pivotIndex = randint(l, r)
+    print(pivotIndex)
+    return pivotIndex
 
 
 
 QuickSortQ1(data_list, 0, len(data_list)-1)
-times = 0
+times = 0  # reset counter
 QuickSortQ2(data_list, 0, len(data_list)-1)
-times = 0
+times = 0  # reset counter
 QuickSortQ3(data_list, 0, len(data_list)-1)
 
 print(times)
