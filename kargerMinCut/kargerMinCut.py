@@ -19,8 +19,7 @@ def pick_pair(graph):
     off = str(random.choice(graph[pivot]))
     return pivot, off
 
-def one_trail():
-    graph = read_file()
+def one_trail(graph):
     while len(graph) >2:
         pivot, off  = pick_pair(graph)
         v1 = graph.pop(pivot)
@@ -41,8 +40,9 @@ def one_trail():
 
 if __name__ == "__main__":
     result = list()
-    for i in range(round(100)): #should be 20**2*math.log(200) times to reduce the probability down to 1/n
-        result.append(one_trail())
+    graph = read_file()
+    for i in range(round(100)):     #should be 20**2*math.log(200) times to reduce the probability down to 1/n
+        result.append(one_trail(graph.copy()))
 
-    print(min(result))          #the result should be 17
+    print(min(result))              #the result should be 17
     print(result)
