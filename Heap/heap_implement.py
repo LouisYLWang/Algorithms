@@ -67,23 +67,15 @@ if __name__ == '__main__':
             heap_update(min_heap, shift_node, "min")
 
         if len(max_heap)==len(min_heap):
-            median_ls.append(min_heap[0])
+            median_ls.append(max_heap[0])
         elif len(max_heap)-len(min_heap) == 1:
             median_ls.append(max_heap[0])
         elif len(min_heap)-len(max_heap) == 1:
             median_ls.append(min_heap[0])
-    
-    compare_median = list()
-    array = list()
-    for line in lines:
-        array.append(int(line))
-        array.sort()
-        compare_median.append(array[len(array)//2])
+
     
 
-#print(compare_median)
 #print(median_ls)
-print(sum(compare_median)%10000)
 print(sum(median_ls)%10000)
 
 
