@@ -4,6 +4,7 @@ class Hashtable():
 
     def hashfunc(self, key):    
         return hash(key) % len(self.hashtable)
+        #return key % len(self.hashtable)
 
     def insert(self, key):
         self.hashtable[self.hashfunc(key)].append(key)
