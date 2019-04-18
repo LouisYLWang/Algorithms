@@ -72,11 +72,8 @@ if __name__ == '__main__':
             median_ls.append(max_heap[0])
         elif len(min_heap)-len(max_heap) == 1:
             median_ls.append(min_heap[0])
-
-    
-
-#print(median_ls)
-print(sum(median_ls)%10000)
+    #print(median_ls)
+    print(sum(median_ls)%10000)
 
 
 
