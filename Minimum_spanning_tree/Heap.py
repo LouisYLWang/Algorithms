@@ -64,19 +64,22 @@ class Heap():
 
     # extract min/max value of the heap
     def extract_value(self):
-        value = self.elements.pop(0)[0]
-        self.restore_index()
+        return_value = self.elements[0]
+        self.elements.pop(0)[0]
         #self.index[index] = None
+        self.restore_index()
         for i in range(len(self.elements)):
             self.heapify(i//2, i)
-        return value
+        
+        return return_value
 
     # for heap: change the value by index
     # for minimal spanning tree: update node cost value by node label
     def update_value(self, index, value):
-        self.elements[self.get_position(index)][1] = value
-        for i in range(len(self.elements)):
-            self.heapify(i//2, i)
+        pos = self.get_position(index)
+        self.elements[pos][1] = value
+        self.heapify(pos//2, pos)
+        self.restore_index()
 
 
     def __str__(self):

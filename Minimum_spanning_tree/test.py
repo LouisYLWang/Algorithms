@@ -1,12 +1,18 @@
 import sys
 import Heap as hp
 
-heap = hp.Heap([[0,float('inf')],[1,float('inf')],[2,float('inf')],[3,float('inf')]],'min')
-#heap = hp.Heap([[1,16],[2,14],[3,10],[4,8],[5,7],[6,9],[7,3],[8,2],[9,4]],'min')
-heap =  hp.Heap([[0,float('inf')]], 'min')
-heap.extract_value()
+#heap = hp.Heap([[0,float('inf')],[1,float('inf')],[2,float('inf')],[3,float('inf')]],'min')
+heap = hp.Heap([[0,4],[1,4],[2,8],[3,9],[4,4],[5,12],[6,9],[7,11],[8,13],[9,7],[10,19]],'min')
 
-print(heap.not_empty())
+
+heap.update_value(7, 3)
+print(heap)
+
+heap.extract_value()
+print(heap)
+
+heap.extract_value()
+print(heap)
 '''
 print(heap)
 
