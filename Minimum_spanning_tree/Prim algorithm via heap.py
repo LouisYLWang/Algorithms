@@ -33,6 +33,5 @@ while heap.not_empty():
         cost = i[1]
         if index in heap.index and cost < heap.elements[index][1]:
             heap.update_value(index , cost)
-    print(heap)
 
 
