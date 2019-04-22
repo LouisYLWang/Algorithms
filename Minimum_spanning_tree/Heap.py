@@ -21,6 +21,9 @@ class Heap():
     def get_position(self, index):
         return self.index[index]
 
+    def not_empty(self):
+        return len(self.elements) != 0
+
     # set element's position in the heap by index 
     def set_position(self, index, value):
         self.index[index] = value
@@ -61,7 +64,7 @@ class Heap():
 
     # extract min/max value of the heap
     def extract_value(self):
-        value = self.elements.pop(0)[1]
+        value = self.elements.pop(0)[0]
         self.restore_index()
         #self.index[index] = None
         for i in range(len(self.elements)):
