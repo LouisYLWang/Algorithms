@@ -3,12 +3,12 @@ from Disjoint_set import *
 def file_parser(file_name):
     file = open(file_name)
     lines = file.readlines()
-    edge_num = int(lines[0])
+    node_num = int(lines[0])
     edge_ls = list()
     edge_map = {}
 
-    eles = [Element(i) for i in range(edge_num)]
-    clusters = [Disjoint_set(eles[i]) for i in range(edge_num)]
+    eles = [Element(i) for i in range(node_num)]
+    clusters = [Disjoint_set(eles[i]) for i in range(node_num)]
 
     for line in lines[1:]:
         l_slices = line.split()
@@ -21,9 +21,9 @@ def file_parser(file_name):
         else:
             edge_map[length].append([eles[start], eles[end]])
 
-    return  edge_num, edge_ls, edge_map, eles, clusters
+    return  node_num, edge_ls, edge_map, eles, clusters
 
-edge_num, edge_ls, edge_map, eles, clusters = file_parser('clustering1.txt')
+node_num, edge_ls, edge_map, eles, clusters = file_parser('clustering1.txt')
 
 cluster_num  = 4
 edge_ls.sort()
