@@ -1,9 +1,11 @@
 from collections import Iterator, Iterable
 
 class Disjoint_set(Iterable):
-    def __init__(self):
-        self.head = None
-        self.tail = None
+    def __init__(self, element=None):
+        self.head = element
+        self.tail = element
+        element.set = self
+
 
     def add_element(self, element):
         if self.head != None:
@@ -48,11 +50,11 @@ class Disjoint_set(Iterable):
     def __iter__(self):
         if not self.head:
             return
-        cur = self.head
-        yield cur
-        while cur.next:
-            cur = cur.next
-            yield cur
+        ele = self.head
+        yield ele
+        while ele.next:
+            ele = ele.next
+            yield ele
     
 
 class Element():
@@ -85,8 +87,6 @@ def union(set1, set2):
         cur = cur.next
         cur.set = max_set
 
-    #for ele in min_set:
-    #    ele.set = max_set
     min_set.head = None
     min_set.tail = False
     return max_set
