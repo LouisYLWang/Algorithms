@@ -1,10 +1,16 @@
 from collections import Iterator, Iterable
 
+
+#global set_num 
+#set_num = 0
+
 class Disjoint_set(Iterable):
     def __init__(self, element=None):
         self.head = element
         self.tail = element
         element.set = self
+        #global set_num 
+        #set_num += 1 
 
 
     def add_element(self, element):
@@ -80,6 +86,7 @@ def union(set1, set2):
 
     max_set.tail.next = min_set.head
     max_set.tail = min_set.tail
+    #min_set.tail.next = None
 
     cur = min_set.head
     cur.set = max_set
@@ -89,5 +96,7 @@ def union(set1, set2):
 
     min_set.head = None
     min_set.tail = False
-    return max_set
+    #global set_num 
+    #set_num -= 1 
 
+    return max_set
