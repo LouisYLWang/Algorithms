@@ -37,7 +37,7 @@ if __name__ == "__main__":
                 res.append(node_)
         return list(map(ls_to_int, res))
 
-    for i in range(1,100000):
+    for i in range(1,200001):
         node_str = list(map(int, lines[i].split()))
         target = get_hamdist_1(node_str) + get_hamdist_2(node_str)
         for j in target:

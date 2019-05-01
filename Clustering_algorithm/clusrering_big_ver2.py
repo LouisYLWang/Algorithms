@@ -38,7 +38,7 @@ def get_hamdist_2(node):
 
 set_num = node_num
 
-for i in range(1,12):
+for i in range(1,200001):
     node_str = list(map(int, lines[i].split()))
     target = get_hamdist_1(node_str) + get_hamdist_2(node_str)
     for j in target:
@@ -48,12 +48,11 @@ for i in range(1,12):
             set_1 = node_1.set
             set_2 = node_2.set
 
-            print("node 1: %s \nnode 2: %s" % (node_1, node_2))
+            #print("node 1: %s \nnode 2: %s" % (node_1, node_2))
             if  set_1 != set_2:
                     union(set_1, set_2)
                     set_num -= 1
 
 print(set_num)
-print(i)
 
 
