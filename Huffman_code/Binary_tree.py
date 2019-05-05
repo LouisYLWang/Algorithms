@@ -21,9 +21,4 @@ class Binary_tree():
                           )   # init father node
         lf_node.parent = rt_node.parent = fa_node
         heap.insertion(fa_node)
-        return fa_node
-
-
-
-
-
+        return fa_node  
