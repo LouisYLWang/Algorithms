@@ -5,15 +5,16 @@ class Heap():
         # ls to store the heap nodes
         # data structure: [[index, keys]]
         self.nodes = list()
+        self.unsorded_nodes = list()
         self._len = len(self.nodes)
         self.heap_type = heap_type
         for i, j in enumerate(elements):
-            self.insertion(nd.Node(val = j, label = str(i)))
+            cur_node = nd.Node(val = j, label = str(i))
+            self.insertion(cur_node)
+            self.unsorded_nodes.append(cur_node)
         #heap_type: 'min'/'max'
 
         
-
-    # insert a [index, keys] into the heap and restore heap structure
     def insertion(self, new_node):
         temp_id = self._len
         parent_id = temp_id//2
