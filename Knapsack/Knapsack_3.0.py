@@ -1,6 +1,6 @@
 
-file_name = "knapsack1.txt"
-#file_name = "test_case2.txt"
+file_name = "knapsack_big.txt"
+#file_name = "test_case3.txt"
 
 file = open(file_name)
 w_num, n_num  = map(int, file.readline().split())
@@ -10,16 +10,26 @@ for line in file.readlines():
     v_cur, w_cur = map(int, line.split())
     items.append([v_cur, w_cur])
 
+memory_hash = {}
+
 
 def get_optimal_val(w_j, n):
     v_cur, w_cur = items[n]
-    if n == 0 or w_cur > w_j:
+    if n == 0: 
         return 0
-    else:
-        #res = max(get_optimal_val(w_j - w_cur, n-1) + v_cur, get_optimal_val(w_j, n-1) )
-        print("%i %i value is ？" %(w_j, n))
-        return max(get_optimal_val(w_j - w_cur, n-1) + v_cur, get_optimal_val(w_j, n-1) )
+    if (w_j, n) in memory_hash:
+        return memory_hash[(w_j, n)]
+    else:    
+        if w_cur > w_j:
+            res = get_optimal_val(w_j, n-1)
+            memory_hash[(w_j, n)] = res
+            return res
+        else:
+            #res = max(get_optimal_val(w_j - w_cur, n-1) + v_cur, get_optimal_val(w_j, n-1) )
+            #print("%i %i value is res " %(w_j, n))
+            res = max(get_optimal_val(w_j - w_cur, n-1) + v_cur, get_optimal_val(w_j, n-1) )
+            memory_hash[(w_j, n)] = res
+            return res
 
-
-get_optimal_val(w_num, n_num)
+print(get_optimal_val(w_num, n_num))
 
