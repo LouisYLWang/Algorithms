@@ -1,6 +1,6 @@
 import numpy as np
-file_name = "knapsack1.txt"
-#file_name = "test_case1.txt"
+#file_name = "knapsack1.txt"
+file_name = "test_case1.txt"
 
 file = open(file_name)
 [w_num, n_num]  = map(int, file.readline().split())
@@ -14,4 +14,5 @@ for n in range(1,n_num + 1):
     for w_j in range(w_cur , w_num + 1):
         A[w_j, n] = max(A[w_j - w_cur, n-1] + v_cur, A[w_j, n-1])
                 
-print(A[w_num, n_num])
+#print(A[w_num, n_num])
+print(A)
