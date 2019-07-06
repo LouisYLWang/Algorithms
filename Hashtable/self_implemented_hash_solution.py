@@ -41,10 +41,10 @@ thread2 = MyThread(5000,10001)
 thread3 = MyThread(-5000,0)
 thread4 = MyThread(-10000,-5001)
 '''
-thread1 = MyThread(0,100)
-thread2 = MyThread(101,200)
-thread3 = MyThread(201,300)
-thread4 = MyThread(301,400)
+thread1 = MyThread(0,10)
+thread2 = MyThread(10,20)
+thread3 = MyThread(20,30)
+thread4 = MyThread(30,40)
 
 
 thread1.start()

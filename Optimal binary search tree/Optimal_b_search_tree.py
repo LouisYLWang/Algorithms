@@ -1,5 +1,5 @@
 import numpy as np
-file_name = "input.txt"
+file_name = "input2.txt"
 lines = open(file_name).readlines()
 nodes = list()
 node_num = int(lines[0].split()[0])
