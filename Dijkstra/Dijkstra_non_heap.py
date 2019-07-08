@@ -41,11 +41,11 @@ while set(end_ver_list) - X != set():
                 min_weight = path_len[i-1] + G[i-1][j]
                 i_ = i
                 j_ = j
-    print([i_,j_])
-    print(min_weight)
+    #print([i_,j_])
+    #print(min_weight)
     X.add(j_)
     path_len[j_-1] = min_weight
-    print(path_len)
+    #print(path_len)
 
 
 target = "7,37,59,82,99,115,133,165,188,197"
