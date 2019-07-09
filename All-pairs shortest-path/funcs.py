@@ -33,9 +33,9 @@ class Graph:
             for j in self.g[i].keys():
                 res_mat[0][i, j] = self.g[i][j]
         
-        for k in range(1, g1.n_v + 1):
-            for i in range(1, g1.n_v + 1):
-                for j in range(1, g1.n_v+1):
+        for k in range(1, self.n_v + 1):
+            for i in range(1, self.n_v + 1):
+                for j in range(1, self.n_v+1):
                     res_mat[i,j,k] = min(res_mat[i,j,k-1], res_mat[i,k, k-1] + res_mat[k,j, k-1])
         return res_mat
     
@@ -64,7 +64,8 @@ class Graph:
             for i in self.g.keys():
                 for j in self.g[i].keys():
                     self.g[i][j] = self.g[i][j] + node_weight[i] - node_weight[j]
-            return node_weight
+            return min(node_weight.values())
+        
 
         
 
