@@ -1,10 +1,6 @@
 import matplotlib.pyplot as plt
 import math
-from scipy.special import comb
-# dp_map:
-# dim 0 (x axis): destination, indexing with 0 ... n
-# dim 1 (y axis): subset, indexing with {0 ... n}
-# adj_mat / adjacency matrix 
+
 def pre_processing(filename):
     file = open(filename)
     lines = file.readlines()
@@ -86,10 +82,10 @@ def TSP(n,adj_mat):
                                 min_ = min(min_, A[subset ^ 1<<j-1, k] + adj_mat[k][j])
                             A[subset,j] = min_
     return A
-
-n, adj_mat = pre_processing('tsp.txt')
-A = TSP(n,adj_mat)
-res = float("inf")
-for j in range(2, n+1):
-    res = min(res, A[(1<<n)-1, j] + adj_mat[j][1])
-print(res)
+if __name__ == '__main__':
+    n, adj_mat = pre_processing('tsp.txt')
+    A = TSP(n,adj_mat)
+    res = float("inf")
+    for j in range(2, n+1):
+        res = min(res, A[(1<<n)-1, j] + adj_mat[j][1])
+    print(res)
